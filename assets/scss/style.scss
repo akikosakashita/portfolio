@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import "bootstrap";
+@import url("https://fonts.googleapis.com/css?family=Roboto:300");
 @import url('https://fonts.googleapis.com/css?family=Archivo+Black|Kosugi|Kosugi+Maru|Russo+One&subset=japanese');
 
 // html, body {
@@ -60,6 +61,25 @@ ul, li {
 #contents {
   padding: 100px 0;
 }
+/*--------------------------------
+　nav
+---------------------------------*/
+#gl-nav {
+background-color:rgba(255,20,87,0.6);
+}
+nav {
+  transition: .3s;
+}
+.is-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+}
+.is-hide {
+  transform: translateY(-100%);
+}
 
 /*--------------------------------
 　Section
@@ -72,13 +92,14 @@ ul, li {
   text-align: center;
   margin-bottom: 30px;
   .section-title {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Playfair Display', sans-serif;
   letter-spacing: -0.01em;
   display: inline-block;
   font-size: 56px;
   font-weight: bold;
   margin-bottom: 10px;
-  color: #4ECCE5;
+  color: #ffffff;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.2);
 }
 .section-desc {
   text-align: center;
@@ -145,12 +166,15 @@ ul, li {
 .card-caption-title {
   font-size: 13px;
   font-weight: bold;
+  padding-left: 10px;
 }
 .card-caption-info {
   font-size: 12px;
+  padding-left: 10px;
 }
 .card-caption-url {
   font-size: 10px;
+  padding-left: 10px;
 }
 }
 }
@@ -280,19 +304,52 @@ ul, li {
 
 #contact {
 .contact-list li {
-  text-align: center;
-.contact-list li a {
-  color: #333;
+   text-align: center;
   img {
-  width: 60px;
+  width: 70px;
   margin: 0 auto 5px;
 }
-.contact-list-desc {
+a {
+  color: #333;
+  &:hover {
+    text-decoration:none;
+  }
+span.contact-list-desc {
   font-weight: bold;
 }
 }
 }
 }
+
+/*--------------------------------
+topへ戻る
+---------------------------------*/
+main #page-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 80%;
+    a {
+    display: block;
+    background: #666;
+    color: #fff;
+    width: 100px;
+    padding: 25px 0;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    &:hover {
+    background: #999;
+    text-decoration: none;
+}
+}
+}
+
+
+
+
+
+
 
 
 
