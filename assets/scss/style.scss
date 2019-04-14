@@ -248,11 +248,14 @@ nav {
 #skill {
 .card:first-child {
   flex-basis: 100%;
+  img {
+  width: 200px;
+}
 }
 .skill-icon {
-  flex-basis: 75px;
+  flex-basis: 100px;
   img {
-  width: 75px;
+  width: 100px;
 }
 }
 .skill-desc {
