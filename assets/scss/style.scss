@@ -2,6 +2,7 @@
 // @import "bootstrap";
 @import url("https://fonts.googleapis.com/css?family=Roboto:300");
 @import url('https://fonts.googleapis.com/css?family=Archivo+Black|Kosugi|Kosugi+Maru|Russo+One&subset=japanese');
+@import url('https://fonts.googleapis.com/css?family=Yesteryear');
 
 // html, body {
 // width: 100%;
@@ -80,6 +81,18 @@ background-color:rgba(255,20,87,0.6);
 nav {
   transition: .3s;
 }
+a.navbar-brand  {
+font-family: 'Yesteryear', cursive;
+color: #d59fea!important;
+font-size: 22px!important;
+}
+nav a.nav-link:hover{
+    color: #fff!important;
+  }
+.dropdown-menu a:hover{
+  background-color: rgba(255,20,87,0.6)!important;
+  color: #fff;
+}
 .is-fixed {
   position: fixed;
   top: 0;
@@ -127,33 +140,37 @@ nav {
 /*--------------------------------
 　Latestworks
 ---------------------------------*/
-#latestworks .inner .two-column-wrapper {
-  width: 80%;
-  margin: 0 auto;
-  padding: 80px 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  @media screen and (max-width: 768px) {
-    flex:none;
-  padding: 30px 0;
+// #latestworks .inner .two-column-wrapper {
+//   width: 80%;
+//   margin: 0 auto;
+//   padding: 80px 0;
+//   display: -webkit-box;
+//   display: -ms-flexbox;
+//   display: flex;
+//   -ms-flex-wrap: nowrap;
+//   flex-wrap: nowrap;
+//   -webkit-box-pack: justify;
+//   -ms-flex-pack: justify;
+//   justify-content: space-between;
+//   @media screen and (max-width: 768px) {
+//     flex:none;
+//   padding: 30px 0;
+// }
+// .two-column-image {
+//   width: 48%;
+//   .two-column-image img {
+//   margin: 0 auto;
+// }
+// }
+// .two-column-desc {
+//   width: 48%;
+// }
+// }
+#latestworks {
+  .lead {
+    font-size: 17px;
+  }
 }
-.two-column-image {
-  width: 48%;
-  .two-column-image img {
-  margin: 0 auto;
-}
-}
-.two-column-desc {
-  width: 48%;
-}
-}
-
 
 /*--------------------------------
 　WORKS
@@ -373,15 +390,18 @@ a {
 }
 }
 }
+
 /*--------------------------------
  CONTACTFORM
 ---------------------------------*/
 #contact-form form {
-  text-align: center;
-  width: 100%;
-  p {
+padding-left: 290px;
+@media screen and (max-width: 768px) {
+  padding-left: 0;
+}
+  p  {
 
-     border-top: 1px #DDD solid;
+     // border-top: 1px #DDD solid;
      &:first-child {
     border-top: none;
      }
@@ -391,15 +411,34 @@ a {
     input {
       border-radius:10px;
       padding: 0.3em;
-      width: 320px;
+      width: 520px;
+      @media screen and (max-width: 768px) {
+        width: 320px;
+      }
     }
+
     textarea {
+
       border-radius:10px;
-      width: 320px;
+      width: 520px;
+      @media screen and (max-width: 768px){
+       width: 320px;
+      }
     }
   }
 }
-
+    input[type="submit"] {
+      background-color: #d59fea;
+      width: 200px;
+      border-radius:10px;
+      padding: 0.3em;
+      &:hover{
+        background-color: #fff;
+      }
+      @media screen and (max-width: 768px) {
+        width: 320px;
+      }
+    }
 /*--------------------------------
 topへ戻る
 ---------------------------------*/
