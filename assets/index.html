@@ -51,6 +51,7 @@
                         <div class="dropdown-menu" aria-labelledby="dropdown03">
                             <a class="dropdown-item" href="index.html#contents">LATEST WORKS</a>
                             <a class="dropdown-item" href="index.html#works">WORKS</a>
+                            <a class="dropdown-item" href="index.html#php">PHP</a>
                             <a class="dropdown-item" href="index.html#photo">Photoshop</a>
                         </div>
                     </li>
@@ -213,12 +214,64 @@
                                         </figure>
                                     </div><!-- /.col-lg-4 -->
                                 </div><!-- /.row -->
-                            </div>
-                        </div>
-                    </section>
+                                <div id="php" class="section-title-block">
+                                    <h2 class="section-title">PHP</h2>
+                                    <div class="section-desc">
+                                        <p class="text">
+                                            PHP勉強中です！</p>
+                                    </div>
+                                </div>
+                                <div id="php_area" >
+                                    <div class="php1">
+<div class="omi">
+    <h1>おみくじ</h1>
+        <p>一日一回が基本です。<br>一回目の結果をその日の開運のヒントにしてみてください。</p>
+        <p>「占う」ボタンを押してください。</p>
+        <form action="" method="post">
+        <input type="hidden" name="scroll_top" value="" class="st">
+        <p class="btn"><input type="submit" value="占う"></p>
+        <?php if($_SERVER['REQUEST_METHOD']==="POST"): ?>
+        <h2>今日の運勢は<span class="re"><?php echo $result["unsei"]; ?></span>です。</h2>
+        <p class="message"><?php echo $result["message"]; ?></p>
+        <p class="message">今日のラッキーカラーは<?php echo $color[$n];?>です！</p>
+        <?php endif; ?>
+        </form>
+         </div>
+        </div><!-- /.col-lg-4 -->
+    <div class="php2">
+<div class="seiza">
+<h1>星座判定</h1>
+<p>誕生日を入力してください。</p>
+<form action="" method="post">
+<p>
+<select name="month">
+<?php for($m = 1; $m <=12; $m++): ?>
+<option><?php echo $m; ?></option>
+<?php endfor; ?>
+</select>
+月
+<select name="date">
+<?php for($d = 1; $d <= 31; $d++): ?>
+<option><?php echo $d; ?></option>
+<?php endfor;?>
+</select>
+日
+</p>
+<input type="hidden" name="scroll_top" value="" class="st">
+<p><input type="submit" value="調べる"></p>
+</form>
+<?php if($_SERVER['REQUEST_METHOD']==="POST"): ?>
+<p><span class="result"><?php echo $seiza; ?></span></p>
+<?php endif;?>
+</div>
+    </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+           </div>
+              </div>
+              </section>
                 </main>
 
-                <section class="section" id="about">
+                <section id="about" class="section" >
                     <div class="inner">
                         <div class="section-title-block">
                             <h2 class="section-title">ABOUT</h2>
@@ -334,10 +387,9 @@
                         </div>
                     </div>
                 </section>
-            </div>
-            <!--.container-->
+            </div><!--.container-->
         </main>
-
+  <div id="page_top"><a href="#"></a></div><!-- topに戻るボタン -->
         <div class='box'>
           <footer class="pt-4 my-md-5 pt-md-5">
                 <div class='wave -one'></div>
@@ -423,15 +475,29 @@
             </div>
         </div>
     </div>
+
     <script src="js/script.js"></script>
     <script src="js/photoswipe/photoswipe_setup.js"></script>
     <script src="js/photoswipe/photoswipe-ui-default.js"></script>
     <script src="js/photoswipe/photoswipe.min.js"></script>
+    <script src="js/back_to_top.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
     <script src="js/nav.js"></script>
+
     <script src="js/bootstrap.bundle.min.js"></script>
+        <script>
+    $('form').submit(function(){
+          var scroll_top = $(window).scrollTop();  //送信時の位置情報を取得
+          $('input.st',this).prop('value',scroll_top);  //隠しフィールドに位置情報を設定
+        });
+
+        window.onload = function(){
+          //ロード時に隠しフィールドから取得した値で位置をスクロール
+          $(window).scrollTop(<?php echo @$_REQUEST['scroll_top']; ?>);
+        }
+    </script>
 
 </body>
 
